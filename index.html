@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Latihan Multimedia HTML5</title>
+</head>
+<body>
+    <h2 style="text-align:center">Latihan Multimedia: Gambar, Video, dan Audio</h2>
+
+    <!-- Gambar -->
+    <div style="text-align:center">
+        <img src="c.png" width="400" alt="Contoh Gambar">
+        <p>Gambar: c.png</p>
+    </div>
+    <hr>
+
+    <!-- Video -->
+    <div style="text-align:center">
+        <h3>Video Player</h3>
+        <button onclick="tekanPause()">Play/Pause</button>  
+        <button onclick="menjadiBig()">Big</button>  
+        <button onclick="menjadiSmall()">Small</button>  
+        <button onclick="menjadiNormal()">Normal</button>  
+        <button onclick="gantiVideo()">Ganti Video</button>
+        <br><br>
+        <video id="videoku" width="430" onended="gantiVideo()" controls>
+            <source id="sourceVideo" src="atena.mp4" type="video/mp4">
+            <source src="atena.webm" type="video/webm">
+            <source src="atena.ogv" type="video/ogg">
+            Browser anda tidak support video HTML5.
+        </video>
+    </div>
+    <hr>
+
+    <!-- Audio -->
+    <div style="text-align:center">
+        <h3>Audio Player</h3>
+        <audio id="audioKu" controls>
+            <source src="Duvet.mp3" type="audio/mpeg">
+            <source src="Duvet.ogg" type="audio/ogg">
+            Browser anda tidak support audio HTML5.
+        </audio>
+    </div>
+
+<script>
+var VideoAku = document.getElementById("videoku");  
+var sourceVideo = document.getElementById("sourceVideo");  
+
+var daftarVideo = ["atena.mp4", "tedi.mp4"];  
+var indexVideo = 0;  
+
+function tekanPause() {  
+  if (VideoAku.paused)  
+    VideoAku.play();  
+  else  
+    VideoAku.pause();  
+}  
+
+function menjadiBig() {  
+  VideoAku.width = 560;  
+}  
+
+function menjadiSmall() {  
+  VideoAku.width = 320;  
+}  
+
+function menjadiNormal() {  
+  VideoAku.width = 430;  
+}  
+
+function gantiVideo() {  
+  indexVideo++;  
+  if (indexVideo >= daftarVideo.length) {  
+    indexVideo = 0;  
+  }  
+  sourceVideo.src = daftarVideo[indexVideo];  
+  VideoAku.load();  
+  VideoAku.play();  
+}  
+</script>
+
+</body>
+</html>
